@@ -8,7 +8,7 @@ const CitiesSuggestions = ({ focusIndex, handleAutoSuggestClick }) => {
         <>
             {!state.autoSuggestsCities && state.searchCities.length > 2 && state.searchCitiesResults.length > 0 &&
                 <div className="search-suggestions">
-                    {state.searchCitiesResults.map((itemm, index) => (
+                    {state.searchCitiesResults.map((item, index) => (
                         <div onMouseDown={() => handleAutoSuggestClick(index)} key={index} className={focusIndex === index ? 'autosuggest active' : "autosuggest"}>
                             {item}
                         </div>
