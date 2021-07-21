@@ -1,4 +1,4 @@
-export const books = [
+export const booksData = [
     {
         title: 'Don Quixote',
         author: 'Miguel De Cervantes',

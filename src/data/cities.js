@@ -1,4 +1,4 @@
-export const cities = [
+export const citiesData = [
     'san jose',
     'santiago',
     'san francisco',

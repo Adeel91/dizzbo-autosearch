@@ -2,6 +2,7 @@
     height: 70vh;
     overflow-y: scroll;
     padding: 0 10px;
+    max-width: 500px;
 }
 
 .search-results .card {
@@ -39,11 +40,12 @@
     border-bottom-right-radius: 0;
 }
 
-.search-results .card .content .book-picture .card-img {
-    border-top-left-radius: 0;
+.search-results .card .card-img-top {
+    border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0;
     border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
+    border-bottom-right-radius: 0;
+    height: 15rem;
 }
 
 .search-results .card .content .title {
@@ -53,4 +55,9 @@
 
 .search-results .card .content .text {
     font-size: 0.65rem;
+}
+
+.no-records {
+    display: flex;
+    justify-content: center;
 }

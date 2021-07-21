@@ -2,35 +2,20 @@ import Actions from "./constants";
 
 export const reducer = (state, action) => {
     switch (action.type) {
-        case Actions.SEARCH_CITIES_TEXT:
+        case Actions.SEARCH_TEXT:
             return {
                 ...state,
-                searchCities: action.payload
+                search: action.payload
             }
-        case Actions.FILTERED_CITIES_RESULTS:
+        case Actions.FILTERED_RESULTS:
             return {
                 ...state,
-                searchCitiesResults: action.payload
+                searchResults: action.payload
             }
-        case Actions.DISPLAY_CITIES_AUTO_SUGGESTS:
+        case Actions.DISPLAY_AUTO_SUGGESTS:
             return {
                 ...state,
-                autoSuggestsCities: action.payload
-            }
-        case Actions.SEARCH_BOOKS_TEXT:
-            return {
-                ...state,
-                searchBooks: action.payload
-            }
-        case Actions.FILTERED_BOOKS_RESULTS:
-            return {
-                ...state,
-                searchBooksResults: action.payload
-            }
-        case Actions.DISPLAY_BOOKS_AUTO_SUGGESTS:
-            return {
-                ...state,
-                autoSuggestsBooks: action.payload
+                autoSuggests: action.payload
             }
 
         default:
@@ -39,11 +24,16 @@ export const reducer = (state, action) => {
 }
 
 export const initialState = {
-    searchCities: "",
-    searchCitiesResults: [],
-    autoSuggestsCities: false,
-    filter: "cities",
-    searchBooks: "",
-    searchBooksResults: [],
-    autoSuggestsBooks: false,
+    search: {
+        cities: "",
+        books: ""
+    },
+    searchResults: {
+        cities: [],
+        books: []
+    },
+    autoSuggests: {
+        cities: false,
+        books: false
+    }
 }

@@ -1,27 +1,28 @@
-import React from "react";
-import CitiesSuggestions from "./cities";
-import BooksSuggestions from "./books";
+import React, {useContext} from "react";
 import './searchSuggestions.css'
+import {SearchContext} from "../../contexts/Search";
 
 function SearchAutoSuggestions({ suggestionOptions, focusIndex, handleAutoSuggestClick }) {
-    if (suggestionOptions === 'cities') {
-        return (
-            <CitiesSuggestions
-                focusIndex={focusIndex}
-                handleAutoSuggestClick={handleAutoSuggestClick}
-            />
-        );
-    }
-    else if (suggestionOptions === 'books') {
-        return (
-            <BooksSuggestions
-                focusIndex={focusIndex}
-                handleAutoSuggestClick={handleAutoSuggestClick}
-            />
-        );
-    }
+    const [ state ] = useContext(SearchContext);
 
-    return null;
+    return (
+        <>
+            {!state.autoSuggests[suggestionOptions] && state.search[suggestionOptions].length > 2 && state.searchResults[suggestionOptions].length > 0 &&
+                <div className="search-suggestions">
+                    {state.searchResults[suggestionOptions].map((item, index) => {
+                        const result = item.title ? item.title : item;
+
+                        return (
+                            <div onMouseDown={() => handleAutoSuggestClick(index)} key={index}
+                                 className={focusIndex === index ? 'autosuggest active' : "autosuggest"}>
+                                {result}
+                            </div>
+                        );
+                    })}
+                </div>
+            }
+        </>
+    );
 }
 
 export default SearchAutoSuggestions;
